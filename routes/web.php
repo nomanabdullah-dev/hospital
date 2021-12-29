@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
-Route::get('/login', function () {
+Route::get('/noman', function () {
     return view('admin.dashboard');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
