@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\SpecialityRequest;
-use App\Interfaces\SpecialityInterface;
 use App\Models\Speciality;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Interfaces\SpecialityInterface;
+use App\Http\Requests\Admin\SpecialityRequest;
 
 class SpecialityController extends Controller
 {
@@ -44,17 +44,17 @@ class SpecialityController extends Controller
         return view($this->path('create'))->with($data);
     }
 
-    public function store(specialityRequest $request)
+    public function store(SpecialityRequest $request)
     {
         return $this->speciality->create($request);
     }
 
-    public function show(speciality $speciality)
+    public function show(Speciality $speciality)
     {
         //
     }
 
-    public function edit(speciality $speciality)
+    public function edit(Speciality $speciality)
     {
         $data['speciality'] = $speciality;
         $data['specialities'] = $this->speciality->pluck();

@@ -3,14 +3,13 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\CountryInterface;
-use App\Models\Country;
-
+use App\Models\Speciality;
+use App\Interfaces\SpecialityInterface;
 
 class SpecialityRepository extends BaseRepository implements SpecialityInterface
 {
-    public function __construct(Country $country)
+    public function __construct(Speciality $speciality)
     {
-        $this->model = $country;
+        $this->model = $speciality;
     }
 }

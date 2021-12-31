@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SpecialityController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,17 @@ Route::get('/', function () {
 });
 
 Auth::routes(['register' => false]);
+Auth::routes(['verify' => true]);
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function(){
+    Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+    //Speciality
+    Route::resource('speciality', SpecialityController::class);
+    
+    Route::post('speciality/status', [SpecialityController::class, 'status'])->name('speciality.status');
+    // Route::get('speciality/deleted-list', SpecialityController::class, 'deletedListIndex')->name('speciality.deleted_list');
+    // Route::get('speciality/restore/{id}', SpecialityController::class, 'restore')->name('speciality.restore');
+    // Route::delete('speciality/force-delete/{id}', SpecialityController::class, 'forceDelete')->name('speciality.force_destroy');
+});
 

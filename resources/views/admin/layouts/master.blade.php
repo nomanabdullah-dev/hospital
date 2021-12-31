@@ -12,7 +12,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
             @include('admin.layouts.partials.navbar')
             @include('admin.layouts.partials.main-sidebar')
 
-            @yield('content')
+            <div class="main-content">
+                <div class="page-content">
+                    <div class="container">
+                        <div class="container-fluid">
+    
+                            <div class="mt-1">
+                                @include('components.error_message')
+                                @include('components.success_message')
+                                @yield('content')
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             @include('admin.layouts.partials.control-sidebar')
             @include('admin.layouts.partials.footer')

@@ -5,12 +5,9 @@ namespace App\Repositories;
 
 
 use App\Helpers\ImageHelper;
-use App\Helpers\MenuHelper;
-use App\Models\File;
-use App\Models\Menu;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Helpers\MenuHelper;
 
 class BaseRepository
 {
@@ -30,7 +27,7 @@ class BaseRepository
         if($where_array){
             $data->where([[$where_array]]);
         }
-        $datatable = \Datatables::of($data)
+        $datatable = \Yajra\DataTables\DataTables::of($data)
             ->addIndexColumn()
             ->filterColumn('status', function($query, $keyword) {
                 $query->where('status','LIKE', "%{$keyword}%");
@@ -72,7 +69,6 @@ class BaseRepository
             })
             ->addColumn('status', function($data){
                 $status = '';
-                $status .= MenuHelper::status($data->id, $data->status);
                 return $status;
             })
             ->addColumn('action', function($data){
@@ -80,7 +76,6 @@ class BaseRepository
                     'id' => $data->id
                 ];
                 $action = '';
-                $action .= MenuHelper::TableActionButton($action_array);
                 return $action;
             })
             ->rawColumns(['action','status']);
