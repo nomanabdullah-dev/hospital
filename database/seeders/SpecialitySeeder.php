@@ -13,6 +13,9 @@ class SpecialitySeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('specialities')->insert([
+            'title' => 'Gynocology',
+            'code' => '001',
+        ]);
     }
 }

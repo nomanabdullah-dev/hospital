@@ -15,6 +15,13 @@
 
 @section('content')
 
+<?php 
+$routeName = Illuminate\Support\Facades\Route::currentRouteName();
+$routeexp = explode(".", $routeName );
+array_splice($routeexp, -1 );
+
+echo implode(".", $routeexp );
+?>
     @component('components.breadcrumb')
         @slot('title')@lang('common.index',['model' => trans('speciality.speciality')])@endslot
         @slot('create_button')

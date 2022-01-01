@@ -35,6 +35,7 @@ class BaseRepository
             ->addColumn('action', function($data){
                 $action_array = [
                     'id' => $data->id,
+                    'status' => $data->status,
                 ];
                 $action = '';
                 $action .= MenuHelper::TableActionButton($action_array);
