@@ -78,13 +78,16 @@ class MenuHelper
         
         $routeName = Route::currentRouteName();
         $newRoute = explode(".", $routeName );
-        array_splice($newRoute, -1 );
-        $Linkroute = implode(".", $newRoute );
+        // array_splice($newRoute, -1 );
+        // $Linkroute = implode("/", $newRoute );
+        $Linkroute = $newRoute[1];
+        $Linkroute .= "/$id/edit";
+        $destroyRoute = "route($Linkroute.destroy,$id)";
 
         $button ='';
         $button .=
-                '<a class="btn btn-primary btn-sm mb-1"
-                    href=""
+                '<a class="btn btn-primary btn-sm destroy mb-1"
+                    href="'.$Linkroute.'"
                     data-id="'.$id.'"
                     data-route="'.$Linkroute.'"
                     data-status="'.$status.'"
@@ -92,8 +95,11 @@ class MenuHelper
                     <i class="fas fa-edit"></i> Edit
                 </a>
                 <a class="btn btn-danger btn-sm mb-1"
-                    href=""
-                    data-placement="top"*/ title="Delete">
+                    href="'.$destroyRoute.'"
+                    data-id="'.$id.'"
+                    data-route="'.$destroyRoute.'"
+                    data-status="'.$status.'"
+                    /*data-toggle="tooltip" data-placement="top"*/ title="Delete">
                     <i class="fas fa-trash"></i> Delete
                 </a>';
         return $button;
