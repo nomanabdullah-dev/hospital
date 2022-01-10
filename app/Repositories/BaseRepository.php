@@ -8,6 +8,7 @@ use App\Helpers\ImageHelper;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Helpers\MenuHelper;
+use Brian2694\Toastr\Facades\Toastr;
 
 class BaseRepository
 {
@@ -94,7 +95,7 @@ class BaseRepository
 
     public function pluck($where_array = null)
     {
-        return $this->model::where([['status','Active'],[$where_array]])->pluck('bn_name','id');
+        return $this->model::where([['status','Active'],[$where_array]])->pluck('id');
     }
 
     public function get($where_array = null)

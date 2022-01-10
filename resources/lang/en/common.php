@@ -13,6 +13,7 @@ return [
     "create_new" => "Create New :model",
     "edit" => "Edit :model",
     "only_name" => "Name",
+    "title" => "Title (English)",
     "name" => "Name (English)",
     "bn_name" => "Name (Bangla)",
     "title" => "Title",

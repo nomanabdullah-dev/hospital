@@ -11,7 +11,18 @@
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
+<!-- toastr plugin -->
+<script src="{{ URL::asset('/admin/assets/common/libs/toastr/toastr.min.js') }}"></script>
+<!-- toastr init -->
+<script src="{{ URL::asset('/admin/assets/common/js/pages/toastr.init.js') }}"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/tooltip.js" >
+</script>
+
+<!-- Sweet Alerts js -->
+<script src="{{ URL::asset('/admin/assets/common/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
+{!! Toastr::message() !!}
 {{-- ajax status update code --}}
 <script>
     function statusUpdate(id, url) {

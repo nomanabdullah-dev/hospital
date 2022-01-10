@@ -22,7 +22,7 @@ Route::get('/', function () {
 Auth::routes(['register' => false]);
 Auth::routes(['verify' => true]);
 
-Route::middleware('auth')->prefix('admin')->name('admin.')->group(function(){
+Route::middleware('auth')->group(function(){
     Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
     //Speciality

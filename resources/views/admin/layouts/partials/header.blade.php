@@ -16,5 +16,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
   <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
   <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+  <!-- Toastr -->
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('/assets/common/libs/toastr/toastr.min.css') }}">
+
+  <!-- Sweet Alert-->
+  <link href="{{ URL::asset('/admin/assets/common/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 </head>
 

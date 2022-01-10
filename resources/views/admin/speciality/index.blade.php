@@ -15,17 +15,10 @@
 
 @section('content')
 
-<?php 
-$routeName = Illuminate\Support\Facades\Route::currentRouteName();
-$routeexp = explode(".", $routeName );
-array_splice($routeexp, -1 );
-
-echo implode(".", $routeexp );
-?>
     @component('components.breadcrumb')
         @slot('title')@lang('common.index',['model' => trans('speciality.speciality')])@endslot
         @slot('create_button')
-            <a href="{{route('admin.speciality.create')}}" class="btn btn-primary btn-sm waves-effect waves-light">
+            <a href="{{route('speciality.create')}}" class="btn btn-primary btn-sm waves-effect waves-light">
                 <i class="fa fa-plus-circle"></i> @lang('common.create',['model' => trans('speciality.speciality')])
             </a>
         @endslot
@@ -115,7 +108,7 @@ echo implode(".", $routeexp );
                 'processing': 'Loading ...'
             },
             ajax: {
-                url: '{{ route('admin.speciality.index') }}',
+                url: '{{ route('speciality.index') }}',
                 type: 'get',
                 dataType: 'JSON',
                 cache: true,
@@ -128,7 +121,7 @@ echo implode(".", $routeexp );
         });
 
         function statusChange(id){
-            statusUpdate(id, '{{route('admin.speciality.status')}}')
+            statusUpdate(id, '{{route('speciality.status')}}')
         }
     </script>
     @include('components.delete_script')

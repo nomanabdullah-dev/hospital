@@ -38,7 +38,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.speciality.index') }}" class="nav-link">
+            <a href="{{ route('speciality.index') }}" class="nav-link">
               <i class="nav-icon fas fa-user-tag"></i>
               <p>
                 Speciality

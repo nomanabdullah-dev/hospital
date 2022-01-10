@@ -3,6 +3,9 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Validation\Validator;
+use Brian2694\Toastr\Facades\Toastr;
 
 class SpecialityRequest extends FormRequest
 {
@@ -11,24 +14,23 @@ class SpecialityRequest extends FormRequest
         return true;
     }
 
-    // protected function withValidator(Validator $validator)
-    // {
-    //     $messages = $validator->messages();
+    protected function withValidator(Validator $validator)
+    {
+        $messages = $validator->messages();
 
-    //     foreach ($messages->all() as $message)
-    //     {
-    //         Toastr::error($message, trans('settings.failed'), ['timeOut' => 10000]);
-    //     }
+        foreach ($messages->all() as $message)
+        {
+            Toastr::error($message, trans('settings.failed'), ['timeOut' => 10000]);
+        }
 
-    //     return $validator->errors()->all();
-    // }
+        return $validator->errors()->all();
+    }
 
     public function rules()
     {
-        // return [
-        //     'name' => 'nullable|unique:countries,name,'.@$this->country->id,
-        //     'bn_name' => 'required|unique:countries,bn_name,'.@$this->country->id,
-        //     'code' => 'sometimes|unique:countries,code,'.@$this->country->id,
-        // ];
+        return [
+            'title' => 'required|unique:specialities,title,'.@$this->speciality->id,
+            'code' => 'nullable|unique:specialities,code,'.@$this->speciality->id,
+        ];
     }
 }
