@@ -435,11 +435,11 @@ class BaseRepository
 
     private function getTranslateKey(){
         $routeName = explode('.',\Route::currentRouteName());
-        $menu = Menu::where('route_name',$routeName[0].".index")->first();
+        $menu = $routeName[0];
         if($this->trans){
             return $this->trans;
         }elseif (@$menu){
-            return $menu->bn_name;
+            return $menu;
         }
     }
 

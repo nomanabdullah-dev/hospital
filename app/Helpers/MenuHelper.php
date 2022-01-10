@@ -76,28 +76,26 @@ class MenuHelper
         $id = $action_array['id'];
         $status = $action_array['status'];
         
-        $routeName = Route::currentRouteName();
-        $newRoute = explode(".", $routeName );
-        // array_splice($newRoute, -1 );
-        // $Linkroute = implode("/", $newRoute );
-        $Linkroute = $newRoute[1];
-        $Linkroute .= "/$id/edit";
-        $destroyRoute = "route($Linkroute.destroy,$id)";
+        $routeName = explode('.',\Route::currentRouteName());
+        $editRoute = $routeName[0].'.edit';
+        $editLink = route($editRoute,$id);
+        $deleteRoute = $routeName[0].'.destroy';
+        $deleteLink = route($deleteRoute,$id);
 
         $button ='';
         $button .=
-                '<a class="btn btn-primary btn-sm destroy mb-1"
-                    href="'.$Linkroute.'"
+                '<a class="btn btn-primary btn-sm mb-1"
+                    href="'.$editLink.'"
                     data-id="'.$id.'"
-                    data-route="'.$Linkroute.'"
+                    data-route="'.$editRoute.'"
                     data-status="'.$status.'"
                     /*data-toggle="tooltip" data-placement="top"*/ title="Edit">
                     <i class="fas fa-edit"></i> Edit
                 </a>
-                <a class="btn btn-danger btn-sm mb-1"
-                    href="'.$destroyRoute.'"
+                <a class="btn btn-danger btn-sm mb-1 destroy"
+                    href="'.$deleteLink.'"
                     data-id="'.$id.'"
-                    data-route="'.$destroyRoute.'"
+                    data-route="'.$deleteRoute.'"
                     data-status="'.$status.'"
                     /*data-toggle="tooltip" data-placement="top"*/ title="Delete">
                     <i class="fas fa-trash"></i> Delete
