@@ -16,7 +16,7 @@
     function delete_function(URL,TR) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
-                confirmButton: 'btn btn-success',
+                confirmButton: 'btn btn-success ml-2',
                 cancelButton: 'btn btn-danger'
             },
             buttonsStyling: false

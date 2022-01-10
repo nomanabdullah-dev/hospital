@@ -435,7 +435,7 @@ class BaseRepository
 
     private function getTranslateKey(){
         $routeName = explode('.',\Route::currentRouteName());
-        $menu = $routeName[0];
+        $menu = ucwords($routeName[0]);
         if($this->trans){
             return $this->trans;
         }elseif (@$menu){
