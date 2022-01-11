@@ -119,6 +119,30 @@
             },
             columnDefs: datatable_columns_defs,
         });
+        
+        $('#deleted_list_datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            pageLength: 25,
+            serverMethod: 'get',
+            lengthMenu: [10, 25, 50,100],
+            order: [ 0, "asc" ],
+            language: {
+                'loadingRecords': '&nbsp;',
+                'processing': 'Loading ...'
+            },
+            ajax: {
+                url: '{{ route('speciality.deleted_list') }}',
+                type: 'get',
+                dataType: 'JSON',
+                cache: true,
+            },
+            columns: datatable_columns,
+            search: {
+                "regex": true
+            },
+            columnDefs: datatable_columns_defs,
+        });
 
         function statusChange(id){
             statusUpdate(id, '{{route('speciality.status')}}')

@@ -29,8 +29,8 @@ Route::middleware('auth')->group(function(){
     Route::resource('speciality', SpecialityController::class);
     
     Route::post('speciality/status', [SpecialityController::class, 'status'])->name('speciality.status');
-    // Route::get('speciality/deleted-list', SpecialityController::class, 'deletedListIndex')->name('speciality.deleted_list');
-    // Route::get('speciality/restore/{id}', SpecialityController::class, 'restore')->name('speciality.restore');
-    // Route::delete('speciality/force-delete/{id}', SpecialityController::class, 'forceDelete')->name('speciality.force_destroy');
+    Route::get('speciality/deleted-list', [SpecialityController::class, 'deletedListIndex'])->name('speciality.deleted_list');
+    Route::get('speciality/restore/{id}', [SpecialityController::class, 'restore'])->name('speciality.restore');
+    Route::delete('speciality/force-delete/{id}', [SpecialityController::class, 'forceDelete'])->name('speciality.force_destroy');
 });
 

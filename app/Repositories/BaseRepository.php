@@ -64,13 +64,14 @@ class BaseRepository
         if($where_array){
             $data->where([[$where_array]]);
         }
-        $datatable = \Datatables::of($data)
+        $datatable = \Yajra\DataTables\Datatables::of($data)
             ->addIndexColumn()
             ->filterColumn('status', function($query, $keyword) {
                 $query->where('status','LIKE', "%{$keyword}%");
             })
             ->addColumn('status', function($data){
                 $status = '';
+                $status .= MenuHelper::status($data->id, $data->status);
                 return $status;
             })
             ->addColumn('action', function($data){
@@ -78,6 +79,7 @@ class BaseRepository
                     'id' => $data->id
                 ];
                 $action = '';
+                $action .= MenuHelper::DeletedTableActionButton($action_array);
                 return $action;
             })
             ->rawColumns(['action','status']);

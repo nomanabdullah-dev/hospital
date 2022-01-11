@@ -98,11 +98,41 @@ class MenuHelper
                     data-route="'.$deleteRoute.'"
                     data-status="'.$status.'"
                     /*data-toggle="tooltip" data-placement="top"*/ title="Delete">
-                    <i class="fas fa-trash"></i> Delete
+                    <i class="fas fa-trash-alt"></i> Delete
                 </a>';
         return $button;
     }
 
+    public static function DeletedTableActionButton(array $action_array = null){
+        $id = $action_array['id'];
+        $status = $action_array['status'];
+        
+        $routeName = explode('.',\Route::currentRouteName());
+        $restoreRoute = $routeName[0].'.restore';
+        $restoreLink = route($restoreRoute,$id);
+        $deleteRoute = $routeName[0].'.force_destroy';
+        $deleteLink = route($deleteRoute,$id);
+
+        $button ='';
+        $button .=
+                '<a class="btn btn-warning btn-sm mb-1"
+                    href="'.$restoreLink.'"
+                    data-id="'.$id.'"
+                    data-route="'.$restoreRoute.'"
+                    data-status="'.$status.'"
+                    /*data-toggle="tooltip" data-placement="top"*/ title="Restore">
+                    <i class="fas fa-undo"></i> Restore
+                </a>
+                <a class="btn btn-danger btn-sm mb-1 destroy"
+                    href="'.$deleteLink.'"
+                    data-id="'.$id.'"
+                    data-route="'.$deleteRoute.'"
+                    data-status="'.$status.'"
+                    /*data-toggle="tooltip" data-placement="top"*/ title="Delete">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </a>';
+        return $button;
+    }
 
     public static function CustomElementPermission($slug){
         $routeName = \Route::currentRouteName();
