@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SpecialitySeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class SpecialitySeeder extends Seeder
     {
         DB::table('specialities')->insert([
             'title' => 'Gynocology',
-            'code' => '001',
+            'description' => '11111',
         ]);
     }
 }

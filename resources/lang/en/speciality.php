@@ -2,7 +2,7 @@
 
 return [
 
-    "code" => "Code (Unique)",
+    "description" => "Description",
     "speciality" => "Speciality",
 
 ];

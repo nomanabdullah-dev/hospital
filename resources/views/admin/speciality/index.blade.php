@@ -6,7 +6,7 @@
     <tr>
         <th width="5%">#</th>
         <th>@lang('common.title',['model' => trans('speciality.speciality')])</th>
-        <th>@lang('speciality.code')</th>
+        <th>@lang('speciality.description')</th>
         <th width="5%">@lang('common.status',['model' => trans('speciality.speciality')])</th>
         <th width="12%">@lang('common.action',['model' => trans('speciality.speciality')])</th>
     </tr>
@@ -81,7 +81,7 @@
         let datatable_columns = [
             {data: 'DT_RowIndex',name:"DT_RowIndex", orderable: false, searchable: false},
             {data: 'title',name: 'title',},
-            {data: 'code',name: 'code',},
+            {data: 'description',name: 'description',},
             {data: 'status',name: 'status',},
             {
                 data: 'action',

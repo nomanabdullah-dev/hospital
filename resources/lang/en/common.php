@@ -17,6 +17,7 @@ return [
     "name" => "Name (English)",
     "bn_name" => "Name (Bangla)",
     "title" => "Title",
+    "description" => "Description",
     "model" => ":model",
     "status" => "Status",
     "active" => "Active",

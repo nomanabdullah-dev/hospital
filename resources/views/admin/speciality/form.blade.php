@@ -13,12 +13,12 @@
     </div>
     <div class="col-sm-12 col-md-4 my-2">
         @php /** @var string $errors */
-            $error_class = $errors->has('code') ? 'parsley-error ' : ''; @endphp
-        <label for="code" class="form-label">@lang('speciality.code')</label>
+            $error_class = $errors->has('description') ? 'parsley-error ' : ''; @endphp
+        <label for="description" class="form-label">@lang('speciality.description')</label>
         <div class="form-group">
-            {{ Form::text('code', null, ['class' => $error_class.'form-control', 'id' => 'code', 'required' => false]) }}
-            @if ($errors->has('code'))
-                <p class="text-danger">{{$errors->first('code')}}</p>
+            {{ Form::text('description', null, ['class' => $error_class.'form-control', 'id' => 'description', 'required' => false]) }}
+            @if ($errors->has('description'))
+                <p class="text-danger">{{$errors->first('description')}}</p>
             @endif
         </div>
     </div>
