@@ -57,6 +57,7 @@ class BaseRepository
     }
 
     public function deletedDatatable(array $parameter = null){
+        dd('jk');
         $make_true = @$parameter['make_true'];
         $where_array = @$parameter['where'];
         $relations = @$parameter['relations'];
@@ -79,7 +80,7 @@ class BaseRepository
                     'id' => $data->id
                 ];
                 $action = '';
-                $action .= MenuHelper::DeletedTableActionButton($action_array);
+                // $action .= MenuHelper::DeletedTableActionButton($action_array);
                 return $action;
             })
             ->rawColumns(['action','status']);
